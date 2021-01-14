@@ -2,7 +2,7 @@
 @section('main')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Update a contact</h1>
+        <h1 class="display-3">Contact Detail</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -13,11 +13,10 @@
         </div>
         <br />
         @endif
-        <form method="post" action="{{ route('contacts.update', $contact->id) }}">
+        <form>
             @method('PATCH')
             @csrf
             <div class="form-group">
-
                 <label for="first_name">First Name:</label>
                 <input type="text" class="form-control" name="first_name" value={{ $contact->first_name }} />
             </div>
@@ -43,7 +42,7 @@
                 <label for="job_title">Job Title:</label>
                 <input type="text" class="form-control" name="job_title" value={{ $contact->job_title }} />
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+           <a href="{{ route('contacts.index')}}" class="btn btn-success">Home</a>
         </form>
     </div>
 </div>
